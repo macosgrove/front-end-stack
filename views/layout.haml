@@ -1,0 +1,13 @@
+!!!
+%html
+  %head
+    %title Sinatra template
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+    / Foundation
+    %link{href: "css/normalize.css", rel: "stylesheet"}/
+    %link{href: "css/foundation.css", rel: "stylesheet"}/
+  %body
+    = yield
+
+    %script{src: "https://code.jquery.com/jquery.js"}
+    %script{src: "js/foundation.min.js"}
