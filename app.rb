@@ -5,8 +5,6 @@ require 'sinatra/reloader' if development?
 require 'haml'
 require 'redcarpet'
 
-set :public_folder, 'public'
-
 class App < Sinatra::Application
   set :root, File.dirname(__FILE__) # You must set app root
 

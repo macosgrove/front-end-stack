@@ -9,7 +9,7 @@ gem 'redcarpet'
 gem 'sinatra-assetpack', :require => 'sinatra/assetpack'
 
 group :development, :test  do
-  gem 'rspec'
+  gem 'rspec', '2.99'
   gem 'rack-test'
   gem 'sinatra-contrib'
 end
