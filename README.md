@@ -45,7 +45,7 @@ Start the Sinatra server
 ```
 rackup config.ru
 ```
-### Browse to http://localhost:5555/
+### Browse to [http://localhost:5555/](http://localhost:5555/)
 
 Rake tasks!
 -----------
