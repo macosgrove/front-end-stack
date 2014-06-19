@@ -2,9 +2,14 @@ GEM
   remote: http://rubygems.org/
   specs:
     backports (3.6.0)
+    coffee-script (2.2.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.7.0)
     daemons (1.1.9)
     diff-lcs (1.2.5)
     eventmachine (1.0.3)
+    execjs (2.1.0)
     haml (4.0.5)
       tilt
     jsmin (1.0.1)
@@ -52,6 +57,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  coffee-script
   haml
   json
   rack-test

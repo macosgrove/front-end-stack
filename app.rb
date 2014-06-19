@@ -4,7 +4,6 @@ require 'json'
 require 'sinatra/reloader' if development?
 require 'haml'
 require 'redcarpet'
-require 'sass'
 
 class App < Sinatra::Application
   set :root, File.dirname(__FILE__)
@@ -20,8 +19,11 @@ class App < Sinatra::Application
     # The final parameter is an array of glob patterns defining the contents
     # of the package (as matched on the public URIs, not the filesystem)
     js :application, '/js/app.js', [
+        '/js/vendor/jquery.js',
         '/js/vendor/**/*.js',
-        '/js/foundation/foundation.min.js'
+        '/js/foundation/foundation.min.js',
+        '/js/*.js',
+        '/js/*.coffee',
     ]
 
     css :application, '/css/app.css', [
