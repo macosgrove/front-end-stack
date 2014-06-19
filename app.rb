@@ -22,8 +22,7 @@ class App < Sinatra::Application
         '/js/vendor/jquery.js',
         '/js/vendor/**/*.js',
         '/js/foundation/foundation.min.js',
-        '/js/*.js',
-        '/js/*.coffee',
+        '/js/*.js'
     ]
 
     css :application, '/css/app.css', [
