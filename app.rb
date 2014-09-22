@@ -12,7 +12,7 @@ class App < Sinatra::Application
   assets {
     serve '/js', from: 'assets/scripts'
     serve '/css', from: 'assets/stylesheets'
-    serve '/images', from: 'assets/images'
+    # serve '/images', from: 'assets/images'
 
     # The second parameter defines where the compressed version will be served.
     # (Note: that parameter is optional, AssetPack will figure it out.)
