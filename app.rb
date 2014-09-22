@@ -27,6 +27,7 @@ class App < Sinatra::Application
 
     css :application, '/css/app.css', [
         '/css/vendor/normalize.css',
+        '/css/vendor/rickshaw.css',
         '/css/foundation/foundation.css',
         '/css/*.css'
     ]
