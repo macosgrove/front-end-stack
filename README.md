@@ -1,4 +1,4 @@
-Front-End Stack: An opinionated starting point for a Ruby/Sinatra front end web app
+Graphbox: Time-Series Graphs for Buildbox
 ============================
 
 The Stack
