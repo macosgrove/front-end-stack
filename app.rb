@@ -40,4 +40,9 @@ class App < Sinatra::Application
     haml :index
   end
 
+
+  get '/graphs/:branch' do
+    haml :branch
+  end
+
 end
