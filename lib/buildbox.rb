@@ -11,13 +11,12 @@ class BuildBox
     raise "Missing Buildbox account" unless @account
   end
 
-  def fetch_branch_builds(branch)
-
+  def fetch_branch_builds(project, branch, per_page=15, page=1)
+    self.class.get("/v1/accounts/#{@account}/projects/#{project}/builds?branch=#{branch}&per_page=#{per_page}&page=#{page}&api_key=#{@key}")
   end
 
   def check_connection
-    response = self.class.get("v1/user?api_key=#{@key}")
-    response.body
+    self.class.get("/v1/user?api_key=#{@key}")
   end
 
 end
