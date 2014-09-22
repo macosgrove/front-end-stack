@@ -9,6 +9,7 @@ gem 'rake'
 gem 'redcarpet'
 gem 'sinatra-assetpack', :require => 'sinatra/assetpack'
 gem 'sass'
+gem 'httparty'
 
 group :development, :test  do
   gem 'rspec', '2.99'

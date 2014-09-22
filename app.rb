@@ -39,4 +39,8 @@ class App < Sinatra::Application
     haml :index
   end
 
+  get '/builds' do
+
+  end
+
 end
