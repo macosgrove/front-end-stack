@@ -1,18 +1,22 @@
 
 class Graph
-  constructor: (data) ->
-    console.log data
+  constructor: ->
+    @$chart = $('#chart')
 
+    project = @$chart.data('project')
+    branch = @$chart.data('branch')
+
+    $.getJSON "/data/#{project}/#{branch}", (data)=>
+      @graphify(data)
+
+  graphify: (data)->
     @graph = new Rickshaw.Graph
-      element: document.querySelector('#chart'),
+      element: @$chart.get(0),
       width: 580,
       height: 250,
       series: [color: 'steelblue', data: data]
 
-  render: ->
     @graph.render()
 
 $ ->
-  data = eval($('#data').text().trim())
-  g = new Graph(data)
-  g.render()
+  new Graph()
