@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/assetpack'
 require 'json'
 require 'sinatra/reloader' if development?
+require "sinatra/json"
 require 'haml'
 require 'redcarpet'
 
@@ -12,7 +13,7 @@ class App < Sinatra::Application
   assets {
     serve '/js', from: 'assets/scripts'
     serve '/css', from: 'assets/stylesheets'
-    serve '/images', from: 'assets/images'
+    # serve '/images', from: 'assets/images'
 
     # The second parameter defines where the compressed version will be served.
     # (Note: that parameter is optional, AssetPack will figure it out.)
@@ -27,6 +28,7 @@ class App < Sinatra::Application
 
     css :application, '/css/app.css', [
         '/css/vendor/normalize.css',
+        '/css/vendor/rickshaw.css',
         '/css/foundation/foundation.css',
         '/css/*.css'
     ]
@@ -37,6 +39,14 @@ class App < Sinatra::Application
 
   get '/' do
     haml :index
+  end
+
+  get '/:project/:branch' do
+    haml :branch
+  end
+
+  get '/data/:project/:branch' do
+    json [ { x: 0, y: 40 }, { x: 1, y: 49 }, { x: 2, y: 17 }, { x: 3, y: 42 } ]
   end
 
 end
