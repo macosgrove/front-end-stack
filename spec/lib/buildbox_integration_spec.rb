@@ -18,4 +18,12 @@ describe BuildBox do
     expect(response.body).to include('"branch": "master"')
   end
 
+  it 'fetches a specific page of branch build data' do
+    bb = BuildBox.new
+    response = bb.fetch_branch_builds('marketplace', 'master', 2, 5)
+    expect(response.code).to be 200
+    expect(response.body).to include('"branch": "master"')
+    expect(response.headers["link"]).to include('&page=6&per_page=2>; rel="next"')
+  end
+
 end
