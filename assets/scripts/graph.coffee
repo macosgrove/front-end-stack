@@ -2,7 +2,6 @@
 class Graph
   constructor: ->
     @$chart = $('#chart')
-    @$yAxis = $('#y-axis')
 
     @project = @$chart.data('project')
     @branch = @$chart.data('branch')
@@ -21,33 +20,44 @@ class Graph
 
   complete: (w) ->
     @legend = new Rickshaw.Graph.Legend
-      element: document.querySelector('#legend'),
-      graph: w.graph
+      element: document.querySelector('#legend')
+      graph:   w.graph
 
-    # @xAxis = new Rickshaw.Graph.Axis.Time(graph: @graph)
+    # @xAxis = new Rickshaw.Graph.Axis.Time(graph: w.graph)
+    @xAxis = new Rickshaw.Graph.Axis.X
+      graph:        w.graph
+      tickFormat:   Rickshaw.Fixtures.Number.formatKMBT
+      element:      document.querySelector('#y-axis')
 
-    # @yAxis = new Rickshaw.Graph.Axis.Y
-    #     graph:        @graph
-    #     orientation:  'left'
-    #     tickFormat:   Rickshaw.Fixtures.Number.formatKMBT
-    #     element:      @$yAxis.get(0)
+
+    @yAxis = new Rickshaw.Graph.Axis.Y
+        graph:        w.graph
+        orientation:  'left'
+        tickFormat:   Rickshaw.Fixtures.Number.formatKMBT
+        element:      document.querySelector('#y-axis')
+
+    opts = {graph:w.graph, legend: @legend}
+
+    shelving = new Rickshaw.Graph.Behavior.Series.Toggle(opts)
+    # order = new Rickshaw.Graph.Behavior.Series.Order(opts)
+    highlight = new Rickshaw.Graph.Behavior.Series.Highlight(opts)
 
   transform: (data) ->
     palette = new Rickshaw.Color.Palette(scheme: 'munin');
     return [
         {
           name: "Rspec",
-          data: [ { x: 1, y: 10 }, { x: 2, y: 11 }],
+          data: [ { x: 12323, y: 10 }, { x: 228037, y: 11 }],
           color: palette.color()
         },
         {
           name: "Cucumber",
-          data: [ { x: 1, y: 28 }, { x: 2, y: 2 }],
+          data: [ { x: 12323, y: 28 }, { x: 228037, y: 2 }],
           color: palette.color()
         },
         {
           name: "Jasmine",
-          data: [ { x: 1, y: 2 }, { x: 2, y: 1 }],
+          data: [ { x: 12323, y: 2 }, { x: 228037, y: 1 }],
           color: palette.color()
         },
       ]
