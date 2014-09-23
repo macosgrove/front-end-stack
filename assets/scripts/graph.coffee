@@ -14,6 +14,7 @@ class Graph
       width:      580
       height:     250
       renderer:   'bar'
+      # stack:      false
       dataURL:    "/data/#{@project}/#{@branch}"
       onData:     (data) => return @transform(data)
       onComplete: (w) => @complete(w)
@@ -24,17 +25,19 @@ class Graph
       graph:   w.graph
 
     # @xAxis = new Rickshaw.Graph.Axis.Time(graph: w.graph)
-    @xAxis = new Rickshaw.Graph.Axis.X
-      graph:        w.graph
-      tickFormat:   Rickshaw.Fixtures.Number.formatKMBT
-      element:      document.querySelector('#y-axis')
-
+    # @xAxis = new Rickshaw.Graph.Axis.X
+    #   graph:        w.graph
 
     @yAxis = new Rickshaw.Graph.Axis.Y
-        graph:        w.graph
-        orientation:  'left'
-        tickFormat:   Rickshaw.Fixtures.Number.formatKMBT
-        element:      document.querySelector('#y-axis')
+        graph: w.graph
+
+    # @xAxis.render()
+    @yAxis.render()
+
+    @hoverDetail = new Rickshaw.Graph.HoverDetail
+        graph:      w.graph
+        xFormatter: (x) -> "Build#{x}"
+        yFormatter: (y) -> "#{y} secs"
 
     opts = {graph:w.graph, legend: @legend}
 
