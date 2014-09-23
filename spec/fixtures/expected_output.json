@@ -1,0 +1,14 @@
+[
+    {
+        "name" : "RSpec",
+        "data" : [ { "build" : "1", "duration" : "36", "state" : "passed" }, { "build" : "2", "duration" : "28", "state" : "passed"}]
+    },
+    {
+        "name" : "Cucumber",
+        "data" : [ { "build" : "1", "duration" : "410", "state" : "failed" }, { "build" : "2", "duration" : "453", "state" : "running" }]
+    },
+    {
+        "name" : "Jasmine",
+        "data" : [ { "build" : "1", "duration" : "5", "state" : "passed" }, { "build" : "2", "duration" : "7", "state" : "passed" }]
+    }
+]

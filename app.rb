@@ -55,7 +55,7 @@ class App < Sinatra::Application
   end
 
   get '/data/:project/:branch' do
-    json [ { x: 0, y: 40 }, { x: 1, y: 49 }, { x: 2, y: 17 }, { x: 3, y: 42 } ]
+    File.new('./spec/fixtures/expected_output.json')
   end
 
 end
