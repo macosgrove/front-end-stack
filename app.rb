@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/assetpack'
 require 'json'
 require 'sinatra/reloader' if development?
+require "sinatra/json"
 require 'haml'
 require 'redcarpet'
 
@@ -42,6 +43,14 @@ class App < Sinatra::Application
 
   get '/builds' do
 
+  end
+
+  get '/:project/:branch' do
+    haml :branch
+  end
+
+  get '/data/:project/:branch' do
+    json [ { x: 0, y: 40 }, { x: 1, y: 49 }, { x: 2, y: 17 }, { x: 3, y: 42 } ]
   end
 
 end
