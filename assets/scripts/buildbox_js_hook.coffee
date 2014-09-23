@@ -1,0 +1,1 @@
+(-> $('.hero-navigation').prepend("<a class='btn btn-new-default btn-sm'>Imagine Graphs</a>"); )()

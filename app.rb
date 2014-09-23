@@ -23,7 +23,12 @@ class App < Sinatra::Application
         '/js/vendor/jquery.js',
         '/js/vendor/**/*.js',
         '/js/foundation/foundation.min.js',
-        '/js/*.js'
+        '/js/example.js',
+        '/js/graph.js'
+    ]
+
+    js :inject, '/js/inject.js', [
+        '/js/buildbox_js_hook.js'
     ]
 
     css :application, '/css/app.css', [
