@@ -28,6 +28,7 @@ class App < Sinatra::Application
     ]
 
     js :inject, '/js/inject.js', [
+        '/js/injections/*.js',
         '/js/buildbox_js_hook.js'
     ]
 
