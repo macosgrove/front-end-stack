@@ -25,6 +25,6 @@ class Graphbox.Injection.MenuNavigation extends Graphbox.Injection.Base
 
     $nav.append($build_btn).append($performance_btn).append($test_btn)
 
-    @serum = $nav
+    @content = $nav
     @method = 'append'
     @patient = $('h2.builds-branch-query')
