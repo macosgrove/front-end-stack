@@ -11,13 +11,17 @@ class Graphbox.Injection.MenuNavigation extends Graphbox.Injection.Base
     $test_btn = $("<li><a class='btn btn-new-default btn-sm'>Test Time-Series</a></li>")
 
     $build_btn.on 'click', ->
-      alert 'build list bro!'
+      $('.graphbox-js_shown').removeClass('graphbox-js_shown').hide()
+      $('#builds-list').addClass('graphbox-js_shown').show()
+      $('ul.pagination').addClass('graphbox-js_shown').show()
 
     $performance_btn.on 'click', ->
-      alert 'performance graph bro!'
+      $('.graphbox-js_shown').removeClass('graphbox-js_shown').hide()
+      $('#graphbox-js_performance_graph_pane').addClass('graphbox-js_shown').show()
 
     $test_btn.on 'click', ->
-      alert 'test graph bro!'
+      $('.graphbox-js_shown').removeClass('graphbox-js_shown').hide()
+      $('#graphbox-js_test_graph_pane').addClass('graphbox-js_shown').show()
 
     $nav.append($build_btn).append($performance_btn).append($test_btn)
 
