@@ -1,17 +1,26 @@
 window.Graphbox ?= {}
 window.Graphbox.Injection ?= {}
 
-class Graphbox.Injection.MenuNavigation
+class Graphbox.Injection.MenuNavigation extends Graphbox.Injection.Base
 
-  inject: ->
+  constructor: ->
     $nav = $("<ul class='hero-navigation' style='margin-top: -8px;'/>")
 
-    $nav.append("<li><a class='btn btn-new-default btn-sm'>Build Lists</a></li>")
+    $build_btn = $("<li><a class='btn btn-new-default btn-sm'>Build Lists</a></li>")
+    $performance_btn = $("<li><a class='btn btn-new-default btn-sm'>Performance Time-Series</a></li>")
+    $test_btn = $("<li><a class='btn btn-new-default btn-sm'>Test Time-Series</a></li>")
 
-    $nav.append("<li><a class='btn btn-new-default btn-sm'>Performance Time-Series</a></li>")
+    $build_btn.on 'click', ->
+      alert 'build list bro!'
 
-    $nav.append("<li><a class='btn btn-new-default btn-sm'>Test Time-Series</a></li>")
+    $performance_btn.on 'click', ->
+      alert 'performance graph bro!'
 
-    $target = $('h2.builds-branch-query')
+    $test_btn.on 'click', ->
+      alert 'test graph bro!'
 
-    new Graphbox.Injector($nav,$target).inject()
+    $nav.append($build_btn).append($performance_btn).append($test_btn)
+
+    @serum = $nav
+    @method = 'append'
+    @patient = $('h2.builds-branch-query')
