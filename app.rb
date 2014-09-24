@@ -8,6 +8,13 @@ require 'redcarpet'
 
 class App < Sinatra::Application
   set :root, File.dirname(__FILE__)
+  configure do
+    $LOAD_PATH.unshift("#{File.dirname(__FILE__)}/lib")
+    Dir.glob("#{File.dirname(__FILE__)}/lib/*.rb") { |lib|
+      require File.basename(lib, '.*')
+    }
+  end
+
   register Sinatra::AssetPack
 
   assets {
@@ -56,7 +63,7 @@ class App < Sinatra::Application
   end
 
   get '/data/:project/:branch' do
-    json [ { x: 0, y: 40 }, { x: 1, y: 49 }, { x: 2, y: 17 }, { x: 3, y: 42 } ]
+    File.new('./spec/fixtures/expected_output.json')
   end
 
 end
