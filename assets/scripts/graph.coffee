@@ -14,6 +14,7 @@ class Graph
       width:      580
       height:     250
       renderer:   'bar'
+      # stack:      false
       dataURL:    "/data/#{@project}/#{@branch}"
       onData:     (data) => return @transform(data)
       onComplete: (w) => @complete(w)
@@ -24,17 +25,19 @@ class Graph
       graph:   w.graph
 
     # @xAxis = new Rickshaw.Graph.Axis.Time(graph: w.graph)
-    @xAxis = new Rickshaw.Graph.Axis.X
-      graph:        w.graph
-      tickFormat:   Rickshaw.Fixtures.Number.formatKMBT
-      element:      document.querySelector('#y-axis')
-
+    # @xAxis = new Rickshaw.Graph.Axis.X
+    #   graph:        w.graph
 
     @yAxis = new Rickshaw.Graph.Axis.Y
-        graph:        w.graph
-        orientation:  'left'
-        tickFormat:   Rickshaw.Fixtures.Number.formatKMBT
-        element:      document.querySelector('#y-axis')
+        graph: w.graph
+
+    # @xAxis.render()
+    @yAxis.render()
+
+    @hoverDetail = new Rickshaw.Graph.HoverDetail
+        graph:      w.graph
+        xFormatter: (x) -> "Build#{x}"
+        yFormatter: (y) -> "#{y} secs"
 
     opts = {graph:w.graph, legend: @legend}
 
@@ -44,23 +47,33 @@ class Graph
 
   transform: (data) ->
     palette = new Rickshaw.Color.Palette(scheme: 'munin');
-    return [
+    data = @data()
+    _.map data, (series) ->
+      {
+        name: series.name
+        data: _.map series.data, (s) ->
+          {x: parseInt(s.build), y: parseInt(s.duration)}
+        color: palette.color()
+      }
+
+
+  data: ->
+    [
         {
-          name: "Rspec",
-          data: [ { x: 12323, y: 10 }, { x: 228037, y: 11 }],
-          color: palette.color()
+            "name" : "RSpec",
+            "data" : [ { "build" : "1", "duration" : "36", "state" : "passed" }, { "build" : "2", "duration" : "28", "state" : "passed"}]
         },
         {
-          name: "Cucumber",
-          data: [ { x: 12323, y: 28 }, { x: 228037, y: 2 }],
-          color: palette.color()
+            "name" : "Cucumber",
+            "data" : [ { "build" : "1", "duration" : "410", "state" : "failed" }, { "build" : "2", "duration" : "453", "state" : "running" }]
         },
         {
-          name: "Jasmine",
-          data: [ { x: 12323, y: 2 }, { x: 228037, y: 1 }],
-          color: palette.color()
-        },
-      ]
+            "name" : "Jasmine",
+            "data" : [ { "build" : "1", "duration" : "5", "state" : "passed" }, { "build" : "2", "duration" : "7", "state" : "passed" }]
+        }
+    ]
+
 
 $ ->
   new Graph()
+
