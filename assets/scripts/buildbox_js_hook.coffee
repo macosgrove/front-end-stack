@@ -1,1 +1,6 @@
-(-> $('.hero-navigation').prepend("<a class='btn btn-new-default btn-sm'>Imagine Graphs</a>"); )()
+window.Graphbox ?= {}
+(-> 
+  
+  nav = new Graphbox.Injection.MenuNavigation
+  nav.inject()
+)()
