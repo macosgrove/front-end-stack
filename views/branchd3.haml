@@ -1,0 +1,9 @@
+%form
+  %label
+    %input{:name => "mode", :type => "radio", :value => "grouped"}/
+    Grouped
+  %label
+    %input{:checked => "checked", :name => "mode", :type => "radio", :value => "stacked"}/
+    Stacked
+= js :application
+= js :graphd3

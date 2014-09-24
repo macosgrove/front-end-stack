@@ -32,10 +32,6 @@ class App < Sinatra::Application
         '/js/foundation/foundation.min.js'
     ]
 
-    js :jquery, '/js/jquery.js', [
-      '/js/vendor/jquery.js'
-    ]
-
     js :inject, '/js/inject.js', [
         '/js/injections/*.js',
         '/js/buildbox_js_hook.js'
@@ -43,6 +39,10 @@ class App < Sinatra::Application
 
     js :graph, '/js/branch_graph.js', [
         '/js/graph.js'
+    ]
+
+    js :graphd3, '/js/graphd3.js', [
+        '/js/graph_d3.js'
     ]
 
     css :application, '/css/app.css', [
