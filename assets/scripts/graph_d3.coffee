@@ -112,6 +112,13 @@ class GraphD3
       .tickPadding(6)
       .orient("bottom")
 
+  yAxis =
+    d3.svg.axis()
+      .scale(y)
+      .tickSize(0)
+      .tickPadding(6)
+      .orient("left")
+
   svg = d3.select("body")
     .append("svg")
       .attr("width", width + margin.left + margin.right)
@@ -128,26 +135,23 @@ class GraphD3
         color i
       )
 
-  rect = layer.selectAll("rect").data((d) ->
-    d)
-      .enter()
-      .append("rect")
-      .attr("x", (d) ->
-        x d.x)
-          .attr("y", height)
-          .attr("width", x.rangeBand())
-          .attr("height", 0)
-          .attr("class", "rect-class")
+  rect = layer.selectAll("rect")
+    .data((d) -> d)
+    .enter()
+    .append("rect")
+      .attr("x", (d) -> x d.x)
+      .attr("y", height)
+      .attr("width", x.rangeBand())
+      .attr("height", 0)
+      .attr("class", "rect-class")
 
   rect.transition()
-    .delay((d, i) ->
-      i * 10)
-    .attr("y", (d) ->
-      y d.y0 + d.y  )
-    .attr "height", (d) ->
-      y(d.y0) - y(d.y0 + d.y)
+    .delay((d, i) -> i * 10)
+    .attr("y", (d) -> y d.y0 + d.y  )
+    .attr "height", (d) -> y(d.y0) - y(d.y0 + d.y)
 
   svg.append("g").attr("class", "x axis").attr("transform", "translate(0," + height + ")").call xAxis
+  svg.append("g").attr("class", "y axis").attr("transform", "translate(2, 0)").call yAxis
 
   d3.selectAll("input").on "change", change
 
