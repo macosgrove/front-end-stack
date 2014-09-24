@@ -27,16 +27,21 @@ class App < Sinatra::Application
     # The final parameter is an array of glob patterns defining the contents
     # of the package (as matched on the public URIs, not the filesystem)
     js :application, '/js/app.js', [
-        '/js/vendor/jquery.js',
         '/js/vendor/**/*.js',
-        '/js/foundation/foundation.min.js',
-        '/js/example.js',
-        '/js/graph.js'
+        '/js/foundation/foundation.min.js'
+    ]
+
+    js :jquery, '/js/jquery.js', [
+      '/js/vendor/jquery.js'
     ]
 
     js :inject, '/js/inject.js', [
         '/js/injections/*.js',
         '/js/buildbox_js_hook.js'
+    ]
+
+    js :graph, '/js/branch_graph.js', [
+        '/js/graph.js'
     ]
 
     css :application, '/css/app.css', [
@@ -60,6 +65,10 @@ class App < Sinatra::Application
 
   get '/:project/:branch' do
     haml :branch
+  end
+
+  get '/d3/:project/:branch' do
+    haml :branchd3
   end
 
   get '/data/:project/:branch' do
