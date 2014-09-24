@@ -8,6 +8,13 @@ require 'redcarpet'
 
 class App < Sinatra::Application
   set :root, File.dirname(__FILE__)
+  configure do
+    $LOAD_PATH.unshift("#{File.dirname(__FILE__)}/lib")
+    Dir.glob("#{File.dirname(__FILE__)}/lib/*.rb") { |lib|
+      require File.basename(lib, '.*')
+    }
+  end
+
   register Sinatra::AssetPack
 
   assets {
