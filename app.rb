@@ -27,6 +27,7 @@ class App < Sinatra::Application
     # The final parameter is an array of glob patterns defining the contents
     # of the package (as matched on the public URIs, not the filesystem)
     js :application, '/js/app.js', [
+        '/js/vendor/jquery.js',
         '/js/vendor/**/*.js',
         '/js/foundation/foundation.min.js'
     ]
