@@ -12,7 +12,6 @@ class Graphbox.Graph.Base
 
   attach: (@target) ->
 
-    $target = $(@target)
     stack = d3.layout.stack()
     layers = stack(@data)
 
