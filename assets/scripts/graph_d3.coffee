@@ -18,9 +18,9 @@ class GraphD3
 
   data =
   [
-      [ { "x": 1, "y": 36, "state": "passed" }, { "x": 2, "y": 28, "state": "passed"}]
-      [ { "x": 1, "y": 410, "state": "failed" }, { "x": 2, "y": 453, "state": "running" }]
-      [ { "x": 1, "y": 5, "state": "passed" }, { "x": 2, "y": 7, "state": "passed" }]
+      [ { "x": 1, "y": 36, "job": "rspec", "state": "passed" }, { "x": 2, "y": 28, "job": "cucumber", "state": "passed"}]
+      [ { "x": 1, "y": 410, "job": "rspec", "state": "failed" }, { "x": 2, "y": 453, "job": "cucumber", "state": "running" }]
+      [ { "x": 1, "y": 5, "job": "rspec", "state": "passed" }, { "x": 2, "y": 7, "job": "cucumber", "state": "passed" }]
   ]
 
 
@@ -43,7 +43,7 @@ class GraphD3
 
   xScale = d3.scale.ordinal()
     .domain(d3.range(data[0].length))
-    .rangeRoundBands([ 0, width ], .08)
+    .rangeRoundBands([ 0, width ], 0.1)
 
   yScale = d3.scale.linear()
     .domain([ 0, yStackMax ])
@@ -77,9 +77,15 @@ class GraphD3
         .attr("class", "layer")
 
   color =
-    passed: "#0f0"
-    running: "#ff0"
-    failed: "#f00"
+    rspec:
+      passed: "#0f0"
+      running: "#ff0"
+      failed: "#f00"
+
+    cucumber:
+      passed: "#0f0"
+      running: "#ff0"
+      failed: "#f00"
 
 
   rect = layer.selectAll("rect")
@@ -91,7 +97,7 @@ class GraphD3
         .attr("width", xScale.rangeBand())
         .attr("height", 0)
         .style("fill", (d, i) ->
-          color[d.state]
+          color[d.job][d.state] or "#999999"
         )
 
   rect.transition()
@@ -102,12 +108,6 @@ class GraphD3
   svg.append("g").attr("class", "x axis").attr("transform", "translate(0," + height + ")").call xAxis
   svg.append("g").attr("class", "y axis").attr("transform", "translate(2, 0)").call yAxis
 
-  d3.selectAll("input").on "change", change
-
-  timeout = setTimeout(->
-    d3.select("input[value=\"grouped\"]").property("checked", true).each change
-    return
-  , 2000)
 
 $ ->
   new GraphD3()
