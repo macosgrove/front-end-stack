@@ -66,15 +66,37 @@ class GraphD3
       x: i
       y: Math.max(0, d)
 
+  data =
+  [
+    {
+      "name": "RSpec",
+      "values": [ { "x": 1, "y": 36, "state": "passed" }, { "x": 2, "y": 28, "state": "passed"}]
+    },
+    {
+      "name": "Cucumber",
+      "values": [ { "x": 1, "y": 410, "state": "failed" }, { "x": 2, "y": 453, "state": "running" }]
+    },
+    {
+      "name": "Jasmine",
+      "values": [ { "x": 1, "y": 5, "state": "passed" }, { "x": 2, "y": 7, "state": "passed" }]
+    }
+  ]
+
+  data2 =
+  [
+      [ { "x": 1, "y": 36, "state": "passed" }, { "x": 2, "y": 28, "state": "passed"}]
+      [ { "x": 1, "y": 410, "state": "failed" }, { "x": 2, "y": 453, "state": "running" }]
+      [ { "x": 1, "y": 5, "state": "passed" }, { "x": 2, "y": 7, "state": "passed" }]
+  ]
+
+
   # number of layers
-  n = 4
+  n = 3
   # number of samples per layer
-  m = 58
+  m = 2
 
   stack = d3.layout.stack()
-  layers = stack(d3.range(n).map(->
-    bumpLayer m, .1
-  ))
+  layers = stack(data2)
 
   yGroupMax = d3.max(layers, (layer) ->
     d3.max layer, (d) ->
@@ -103,8 +125,6 @@ class GraphD3
     .domain([ 0, yStackMax ])
     .range([ height, 0 ])
 
-  color = d3.scale.linear().domain([0, n - 1]).range(["#a0d", "#556" ])
-
   xAxis =
     d3.svg.axis()
       .scale(x)
@@ -129,21 +149,26 @@ class GraphD3
   layer = svg.selectAll(".layer")
     .data(layers)
     .enter()
-    .append("g")
-      .attr("class", "layer")
-      .style("fill", (d, i) ->
-        color i
-      )
+      .append("g")
+        .attr("class", "layer")
+
+  color =
+    passed: "#0f0"
+    running: "#ff0"
+    failed: "#f00"
+
 
   rect = layer.selectAll("rect")
     .data((d) -> d)
     .enter()
-    .append("rect")
-      .attr("x", (d) -> x d.x)
-      .attr("y", height)
-      .attr("width", x.rangeBand())
-      .attr("height", 0)
-      .attr("class", "rect-class")
+      .append("rect")
+        .attr("x", (d) -> x d.x)
+        .attr("y", height)
+        .attr("width", x.rangeBand())
+        .attr("height", 0)
+        .style("fill", (d, i) ->
+          color[d.state]
+        )
 
   rect.transition()
     .delay((d, i) -> i * 10)
