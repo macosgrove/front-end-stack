@@ -4,10 +4,9 @@ window.Graphbox.Injection ?= {}
 class Graphbox.Injection.PerformanceGraph extends Graphbox.Injection.Base
 
   constructor: ->
-    
+    #imagine I fetch data, or built a path for an ajax graph
+
     @target = "#graphbox-js_performance_graph_pane"
-    @path = "https://graphbox.herokuapp.com/data/marketplace/master?callback=?"
 
   inject: ->
-  	$.getJSON @path, (data) ->
-        (new Graphbox.Graph.Base data).attach(@target)
+  	(new Graphbox.Graph.Base).attach(@target)
