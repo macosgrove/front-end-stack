@@ -37,17 +37,12 @@ class App < Sinatra::Application
         '/js/buildbox_js_hook.js'
     ]
 
-    js :graph, '/js/branch_graph.js', [
-        '/js/graph.js'
-    ]
-
     js :graphd3, '/js/graphd3.js', [
         '/js/graph_d3.js'
     ]
 
     css :application, '/css/app.css', [
         '/css/vendor/normalize.css',
-        '/css/vendor/rickshaw.css',
         '/css/foundation/foundation.css',
         '/css/*.css'
     ]
