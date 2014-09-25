@@ -33,6 +33,8 @@ class App < Sinatra::Application
     ]
 
     js :inject, '/js/inject.js', [
+        '/js/vendor/d3.js',
+        '/js/graphd3.js',
         '/js/injections/*.js',
         '/js/buildbox_js_hook.js'
     ]
