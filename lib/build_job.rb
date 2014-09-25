@@ -12,7 +12,7 @@ class BuildJob
   end
 
   def seconds_between(start_s, finish_s)
-    return nil unless start_s && finish_s
+    return 0 unless start_s && finish_s
     finish = DateTime.parse(finish_s).to_time
     start = DateTime.parse(start_s).to_time
     time = finish - start

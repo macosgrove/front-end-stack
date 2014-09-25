@@ -49,6 +49,22 @@ describe BranchDurationGraphDataParser do
 
   end
 
+  context 'with null start and finish times' do
+    let(:test_data) {'[{"number": 197, "jobs": [
+        {"name": "Jasmine",
+        "state": "passed",
+        "scheduled_at": "2014-09-22 04:29:45 UTC",
+        "started_at": null,
+        "finished_at": null}]}]'
+    }
+    let(:job) { parser.steps["Jasmine"].first }
+
+    it 'sets duration to 0' do
+      expect(job.duration).to be 0
+    end
+
+  end
+
   context 'with two steps' do
     let(:test_data) { '[{"number": 34, "jobs": [
         {"name": "Jasmine", "state": "passed"}, {"name": "RSpec", "state": "failed"}]}]'}

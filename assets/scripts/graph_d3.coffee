@@ -1,11 +1,7 @@
 class GraphD3
 
   data =
-  [
-      [ { "x": 1, "y": 36, "step": "RSpec", "state": "passed" }, { "x": 2, "y": 28, "step": "RSpec", "state": "passed"}]
-      [ { "x": 1, "y": 410, "step": "Cucumber", "state": "failed" }, { "x": 2, "y": 453, "step": "Cucumber", "state": "running" }]
-      [ { "x": 1, "y": 5, "step": "Jasmine", "state": "passed" }, { "x": 2, "y": 7, "step": "Jasmine", "state": "passed" }]
-  ]
+    [[{"x":7739,"y":47,"step":"Jasmine","state":"passed"},{"x":7736,"y":46,"step":"Jasmine","state":"passed"},{"x":7733,"y":45,"step":"Jasmine","state":"passed"},{"x":7708,"y":44,"step":"Jasmine","state":"passed"},{"x":7700,"y":47,"step":"Jasmine","state":"passed"}],[{"x":7739,"y":429,"step":"Cucumber","state":"passed"},{"x":7736,"y":430,"step":"Cucumber","state":"passed"},{"x":7733,"y":430,"step":"Cucumber","state":"failed"},{"x":7708,"y":421,"step":"Cucumber","state":"passed"},{"x":7700,"y":416,"step":"Cucumber","state":"passed"}],[{"x":7739,"y":228,"step":"RSpec","state":"passed"},{"x":7736,"y":226,"step":"RSpec","state":"passed"},{"x":7733,"y":229,"step":"RSpec","state":"passed"},{"x":7708,"y":227,"step":"RSpec","state":"passed"},{"x":7700,"y":224,"step":"RSpec","state":"passed"}],[{"x":7739,"y":4,"step":"Tag Green","state":"passed"},{"x":7736,"y":3,"step":"Tag Green","state":"passed"},{"x":7733,"y":0,"step":"Tag Green","state":"waiting_failed"},{"x":7708,"y":3,"step":"Tag Green","state":"passed"},{"x":7700,"y":4,"step":"Tag Green","state":"passed"}]]
 
 
   stack = d3.layout.stack()
@@ -14,6 +10,16 @@ class GraphD3
   yStackMax = d3.max(layers, (layer) ->
     d3.max layer, (d) ->
       d.y0 + d.y
+  )
+
+  xMin = d3.min(layers, (layer) ->
+    d3.min layer, (d) ->
+      d.x
+  )
+
+  xMax = d3.max(layers, (layer) ->
+    d3.max layer, (d) ->
+      d.x
   )
 
   margin =
@@ -76,12 +82,17 @@ class GraphD3
       running: "#ff8"
       failed: "#f88"
 
+    "Tag Green":
+      passed: "#8f8"
+      running: "#ff8"
+      failed: "#f88"
+
 
   rect = layer.selectAll("rect")
     .data((d) -> d)
     .enter()
       .append("rect")
-        .attr("x", (d) -> xScale d.x)
+        .attr("x", (d, i) -> xScale i)
         .attr("y", height)
         .attr("width", xScale.rangeBand())
         .attr("height", 0)
