@@ -59,11 +59,11 @@ class GraphD3
   yAxis =
     d3.svg.axis()
       .scale(yScale)
-      .tickSize(0)
-      .tickPadding(6)
+      .tickSize(5)
+      .tickPadding(0)
       .orient("left")
 
-  svg = d3.select("body")
+  svg = d3.select(".graph")
     .append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
