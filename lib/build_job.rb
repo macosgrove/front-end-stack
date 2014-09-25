@@ -2,11 +2,12 @@ require 'json'
 
 class BuildJob
 
-  attr_reader :build, :state, :duration
+  attr_reader :step, :build, :state, :duration
 
   def initialize(build, input_json)
     @build = build
     @state = input_json["state"]
+    @step = input_json["name"]
     @duration = seconds_between(input_json["started_at"], input_json["finished_at"])
   end
 
@@ -15,13 +16,14 @@ class BuildJob
     finish = DateTime.parse(finish_s).to_time
     start = DateTime.parse(start_s).to_time
     time = finish - start
-    time.to_i.to_s
+    time.to_i
   end
 
   def to_json(options = {})
     {
-      "build" => @build.to_s,
-      "duration" => @duration.to_s,
+      "x" => @build,
+      "y" => @duration,
+      "step" => @step,
       "state" => @state
     }.to_json(options)
   end

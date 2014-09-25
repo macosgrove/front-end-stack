@@ -1,26 +1,10 @@
 class GraphD3
 
-  goal =
-  [
-    {
-      "name": "RSpec",
-      "values": [ { "build": 1, "duration": 36, "state": "passed" }, { "build": 2, "duration": 28, "state": "passed"}]
-    },
-    {
-      "name": "Cucumber",
-      "values": [ { "build": 1, "duration": 410, "state": "failed" }, { "build": 2, "duration": 453, "state": "running" }]
-    },
-    {
-      "name": "Jasmine",
-      "values": [ { "build": 1, "duration": 5, "state": "passed" }, { "build": 2, "duration": 7, "state": "passed" }]
-    }
-  ]
-
   data =
   [
-      [ { "x": 1, "y": 36, "job": "rspec", "state": "passed" }, { "x": 2, "y": 28, "job": "rspec", "state": "passed"}]
-      [ { "x": 1, "y": 410, "job": "cucumber", "state": "failed" }, { "x": 2, "y": 453, "job": "cucumber", "state": "running" }]
-      [ { "x": 1, "y": 5, "job": "jasmine", "state": "passed" }, { "x": 2, "y": 7, "job": "jasmine", "state": "passed" }]
+      [ { "x": 1, "y": 36, "step": "RSpec", "state": "passed" }, { "x": 2, "y": 28, "step": "RSpec", "state": "passed"}]
+      [ { "x": 1, "y": 410, "step": "Cucumber", "state": "failed" }, { "x": 2, "y": 453, "step": "Cucumber", "state": "running" }]
+      [ { "x": 1, "y": 5, "step": "Jasmine", "state": "passed" }, { "x": 2, "y": 7, "step": "Jasmine", "state": "passed" }]
   ]
 
 
@@ -77,17 +61,17 @@ class GraphD3
         .attr("class", "layer")
 
   color =
-    rspec:
+    RSpec:
       passed: "#0f0"
       running: "#ff0"
       failed: "#f00"
 
-    cucumber:
+    Cucumber:
       passed: "#080"
       running: "#880"
       failed: "#800"
 
-    jasmine:
+    Jasmine:
       passed: "#8f8"
       running: "#ff8"
       failed: "#f88"
@@ -102,7 +86,7 @@ class GraphD3
         .attr("width", xScale.rangeBand())
         .attr("height", 0)
         .style("fill", (d, i) ->
-          color[d.job][d.state] or "#999999"
+          color[d.step][d.state] or "#999999"
         )
 
   rect.transition()
