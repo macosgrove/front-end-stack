@@ -22,7 +22,7 @@ describe BranchDurationGraphDataParser do
     let(:job) { parser.steps["Jasmine"].first }
 
     it 'sets the build number' do
-      expect(job.build).to  eq "197"
+      expect(job.build).to  be 197
     end
 
     it 'sets the state' do
@@ -30,9 +30,12 @@ describe BranchDurationGraphDataParser do
     end
 
     it 'sets duration in seconds' do
-      expect(job.duration).to eq "440"
+      expect(job.duration).to be 440
     end
 
+    it 'emits json suited to the graph' do
+      expect(parser.branch_duration_graph_data).to eq '[[{"x":197,"y":440,"step":"Jasmine","state":"passed"}]]'
+    end
   end
 
   context 'with waiter jobs' do
@@ -42,6 +45,22 @@ describe BranchDurationGraphDataParser do
 
     it 'ignores the waiter jobs' do
       expect(parser.steps).to be_empty
+    end
+
+  end
+
+  context 'with null start and finish times' do
+    let(:test_data) {'[{"number": 197, "jobs": [
+        {"name": "Jasmine",
+        "state": "passed",
+        "scheduled_at": "2014-09-22 04:29:45 UTC",
+        "started_at": null,
+        "finished_at": null}]}]'
+    }
+    let(:job) { parser.steps["Jasmine"].first }
+
+    it 'sets duration to 0' do
+      expect(job.duration).to be 0
     end
 
   end

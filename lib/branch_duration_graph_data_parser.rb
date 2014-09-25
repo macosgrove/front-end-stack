@@ -19,14 +19,14 @@ class BranchDurationGraphDataParser
       build["jobs"].each do |job|
         unless job["type"] == "waiter"
           @steps[job["name"]] ||= []
-          @steps[job["name"]] << BuildJob.new(build["number"].to_s, job)
+          @steps[job["name"]] << BuildJob.new(build["number"], job)
         end
       end
     end
   end
 
   def to_json
-    @steps.to_json
+    @steps.values.to_json
   end
 
   alias_method :branch_duration_graph_data, :to_json
