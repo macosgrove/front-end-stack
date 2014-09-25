@@ -5,6 +5,7 @@ require 'sinatra/reloader' if development?
 require "sinatra/json"
 require 'haml'
 require 'redcarpet'
+require './lib/buildbox'
 
 class App < Sinatra::Application
   set :root, File.dirname(__FILE__)
@@ -68,7 +69,9 @@ class App < Sinatra::Application
   end
 
   get '/data/:project/:branch' do
-    File.new('./spec/fixtures/expected_output.json')
+    bb = BranchDurationGraphDataParser.new(BuildBox.new)
+    response = bb.fetch_and_parse(params[:project], params[:branch])
+    json response
   end
 
 end
