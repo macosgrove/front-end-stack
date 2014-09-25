@@ -18,9 +18,9 @@ class GraphD3
 
   data =
   [
-      [ { "x": 1, "y": 36, "job": "rspec", "state": "passed" }, { "x": 2, "y": 28, "job": "cucumber", "state": "passed"}]
-      [ { "x": 1, "y": 410, "job": "rspec", "state": "failed" }, { "x": 2, "y": 453, "job": "cucumber", "state": "running" }]
-      [ { "x": 1, "y": 5, "job": "rspec", "state": "passed" }, { "x": 2, "y": 7, "job": "cucumber", "state": "passed" }]
+      [ { "x": 1, "y": 36, "job": "rspec", "state": "passed" }, { "x": 2, "y": 28, "job": "rspec", "state": "passed"}]
+      [ { "x": 1, "y": 410, "job": "cucumber", "state": "failed" }, { "x": 2, "y": 453, "job": "cucumber", "state": "running" }]
+      [ { "x": 1, "y": 5, "job": "jasmine", "state": "passed" }, { "x": 2, "y": 7, "job": "jasmine", "state": "passed" }]
   ]
 
 
@@ -83,9 +83,14 @@ class GraphD3
       failed: "#f00"
 
     cucumber:
-      passed: "#0f0"
-      running: "#ff0"
-      failed: "#f00"
+      passed: "#080"
+      running: "#880"
+      failed: "#800"
+
+    jasmine:
+      passed: "#8f8"
+      running: "#ff8"
+      failed: "#f88"
 
 
   rect = layer.selectAll("rect")
