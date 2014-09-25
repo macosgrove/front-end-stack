@@ -40,7 +40,8 @@ class App < Sinatra::Application
     ]
 
     js :graphd3, '/js/graphd3.js', [
-        '/js/graph_d3.js'
+        '/js/graph_d3.js',
+        '/js/graph_loader.js'
     ]
 
     css :application, '/css/app.css', [
