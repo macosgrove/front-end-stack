@@ -14,7 +14,12 @@ class Graphbox.Initializer
 
   load_graphs: ->
     if window.d3 isnt undefined
-      (new Graphbox.Injection.PerformanceGraph).inject()
+      $inject_script = $("script[src='htttps://graphbox.herokuapp.com/js/inject/js']")
+      current_branch = $inject_script.data('branch')
+      (new Graphbox.Injection.PerformanceGraph current_branch, "#graphbox-js_performance_graph_pane").inject()
+
+      #hack, for testing
+      (new Graphbox.Injection.PerformanceGraph "6468-sitemap-fix-we-should-link-to-the-homepage-via-the-sitemaps", "#graphbox-js_test_graph_pane").inject()
     else
       window.setTimeout this.load_graphs, 500
 
