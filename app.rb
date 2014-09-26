@@ -32,7 +32,14 @@ class App < Sinatra::Application
     # of the package (as matched on the public URIs, not the filesystem)
     js :application, '/js/app.js', [
         '/js/vendor/jquery.js',
-        '/js/vendor/**/*.js',
+        '/js/vendor/d3.js',
+        '/js/vendor/d3.layout.js',
+        '/js/vendor/d3-tip.js',
+        '/js/vendor/fastclick.js',
+        '/js/vendor/jquery.cookie.js',
+        '/js/vendor/modernizr.js',
+        '/js/vendor/placeholder.js',
+        '/js/vendor/underscore.js',
         '/js/foundation/foundation.min.js'
     ]
 

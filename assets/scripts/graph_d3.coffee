@@ -31,7 +31,7 @@ class Graphbox.Graph.Base
 
     xScale = d3.scale.ordinal()
     .domain(d3.range(@data[0].length))
-    .rangeRoundBands([ 0, width ], 0.1)
+    .rangeRoundBands([ 10, width ], .1)
 
     yScale = d3.scale.linear()
     .domain([ 0, yStackMax ])
@@ -57,6 +57,12 @@ class Graphbox.Graph.Base
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
     .attr("transform","translate(" + margin.left + "," + margin.top + ")")
+
+    tip = d3.tip().attr('class', 'd3-tip')
+    .attr("transform", "translate(-150, 200)")
+    .html((d) -> "##{d.x}<br/>#{d.step}<br/>#{d.state}")
+
+    svg.call(tip)
 
     layer = svg.selectAll(".layer")
     .data(layers)
@@ -93,6 +99,8 @@ class Graphbox.Graph.Base
     .style("fill", (d, i) ->
       color[d.step][d.state] or "#999999"
     )
+    .on('mouseover', tip.show)
+    .on('mouseout', tip.hide)
 
     rect.transition()
     .delay((d, i) -> i * 10)
@@ -100,4 +108,12 @@ class Graphbox.Graph.Base
     .attr "height", (d) -> yScale(d.y0) - yScale(d.y0 + d.y)
 
     svg.append("g").attr("class", "x axis").attr("transform", "translate(0," + height + ")").call xAxis
-    svg.append("g").attr("class", "y axis").attr("transform", "translate(2, 0)").call yAxis
+
+    svg.append("g").attr("class", "y axis").attr("transform", "translate(15, 0)")
+    .call yAxis
+    .append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", -15)
+    .attr("x", -200)
+    .style("text-anchor", "end")
+    .text("Seconds")
