@@ -1,18 +1,30 @@
 require 'sinatra/base'
 require 'sinatra/assetpack'
 require 'json'
+require "sinatra/jsonp"
 require 'sinatra/reloader' if development?
+require "sinatra/json"
 require 'haml'
 require 'redcarpet'
+require './lib/buildbox'
 
 class App < Sinatra::Application
+  helpers Sinatra::Jsonp
+
   set :root, File.dirname(__FILE__)
+  configure do
+    $LOAD_PATH.unshift("#{File.dirname(__FILE__)}/lib")
+    Dir.glob("#{File.dirname(__FILE__)}/lib/*.rb") { |lib|
+      require File.basename(lib, '.*')
+    }
+  end
+
   register Sinatra::AssetPack
 
   assets {
     serve '/js', from: 'assets/scripts'
     serve '/css', from: 'assets/stylesheets'
-    serve '/images', from: 'assets/images'
+    # serve '/images', from: 'assets/images'
 
     # The second parameter defines where the compressed version will be served.
     # (Note: that parameter is optional, AssetPack will figure it out.)
@@ -20,9 +32,26 @@ class App < Sinatra::Application
     # of the package (as matched on the public URIs, not the filesystem)
     js :application, '/js/app.js', [
         '/js/vendor/jquery.js',
-        '/js/vendor/**/*.js',
-        '/js/foundation/foundation.min.js',
-        '/js/*.js'
+        '/js/vendor/d3.js',
+        '/js/vendor/d3.layout.js',
+        '/js/vendor/d3-tip.js',
+        '/js/vendor/fastclick.js',
+        '/js/vendor/jquery.cookie.js',
+        '/js/vendor/modernizr.js',
+        '/js/vendor/placeholder.js',
+        '/js/vendor/underscore.js',
+        '/js/foundation/foundation.min.js'
+    ]
+
+    js :inject, '/js/inject.js', [
+        '/js/graph_d3.js',
+        '/js/injections/*.js',
+        '/js/buildbox_js_hook.js'
+    ]
+
+    js :graphd3, '/js/graphd3.js', [
+        '/js/graph_d3.js',
+        '/js/graph_loader.js'
     ]
 
     css :application, '/css/app.css', [
@@ -37,6 +66,24 @@ class App < Sinatra::Application
 
   get '/' do
     haml :index
+  end
+
+  get '/builds' do
+
+  end
+
+  get '/:project/:branch' do
+    haml :branch
+  end
+
+  get '/d3/:project/:branch' do
+    haml :branchd3
+  end
+
+  get '/data/:project/:branch' do
+    parser = BranchDurationGraphDataParser.new(BuildBox.new)
+    parser.fetch_and_parse(params[:project], params[:branch])
+    jsonp parser.branch_duration_graph_data
   end
 
 end

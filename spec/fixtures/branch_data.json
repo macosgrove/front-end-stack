@@ -1,0 +1,488 @@
+[
+    {
+        "id": "3133e3a2-0c29-4b5c-b2e6-aed61bf3f2fc",
+        "url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/projects/marketplace/builds/7739",
+        "number": 7739,
+        "state": "passed",
+        "message": "Merge pull request #7318 from envato/fix-portfolio-thumbnails\n\nfix portfolio thumbnail height",
+        "commit": "c84c02075b2cac27d633126016d0222c1482c0db",
+        "branch": "master",
+        "env": {
+        },
+        "jobs": [
+            {
+                "id": "26142f5c-dd5e-4f4d-a132-8993aec9ffcb",
+                "type": "script",
+                "name": "Jasmine",
+                "state": "passed",
+                "log_url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/projects/marketplace/builds/7739/jobs/26142f5c-dd5e-4f4d-a132-8993aec9ffcb/log",
+                "script_path": "./script/buildbox_testem.sh",
+                "exit_status": 0,
+                "artifact_paths": "results/**/*; log/*; tmp/capybara/**/*",
+                "agent": {
+                    "id": "461352d1-cdcd-4314-ac95-d9d83f92999a",
+                    "url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/agents/461352d1-cdcd-4314-ac95-d9d83f92999a",
+                    "name": "ip-10-144-254-125"
+                },
+                "created_at": "2014-09-22 04:29:45 UTC",
+                "scheduled_at": "2014-09-22 04:29:45 UTC",
+                "started_at": "2014-09-22 04:29:48 UTC",
+                "finished_at": "2014-09-22 04:30:35 UTC"
+            },
+            {
+                "id": "19f23397-1699-4065-ac7d-debd8f7f203b",
+                "type": "script",
+                "name": "Cucumber",
+                "state": "passed",
+                "log_url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/projects/marketplace/builds/7739/jobs/19f23397-1699-4065-ac7d-debd8f7f203b/log",
+                "script_path": "./script/buildbox_parallel_rake.sh",
+                "exit_status": 0,
+                "artifact_paths": "results/**/*; log/*; tmp/capybara/**/*",
+                "agent": {
+                    "id": "64a115fe-053f-46d5-95df-432d0e6543c7",
+                    "url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/agents/64a115fe-053f-46d5-95df-432d0e6543c7",
+                    "name": "ip-10-139-87-109"
+                },
+                "created_at": "2014-09-22 04:29:45 UTC",
+                "scheduled_at": "2014-09-22 04:29:45 UTC",
+                "started_at": "2014-09-22 04:29:47 UTC",
+                "finished_at": "2014-09-22 04:36:56 UTC"
+            },
+            {
+                "id": "7f8c2f34-f878-4151-81e1-c4d07c7dae43",
+                "type": "script",
+                "name": "RSpec",
+                "state": "passed",
+                "log_url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/projects/marketplace/builds/7739/jobs/7f8c2f34-f878-4151-81e1-c4d07c7dae43/log",
+                "script_path": "./script/buildbox_parallel_rake.sh",
+                "exit_status": 0,
+                "artifact_paths": "results/**/*; log/*; tmp/capybara/**/*",
+                "agent": {
+                    "id": "c13ffc2d-6f42-49b5-bdf7-f58c03a5181b",
+                    "url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/agents/c13ffc2d-6f42-49b5-bdf7-f58c03a5181b",
+                    "name": "ip-10-153-224-190"
+                },
+                "created_at": "2014-09-22 04:29:45 UTC",
+                "scheduled_at": "2014-09-22 04:29:45 UTC",
+                "started_at": "2014-09-22 04:30:19 UTC",
+                "finished_at": "2014-09-22 04:34:07 UTC"
+            },
+            {
+                "type": "waiter"
+            },
+            {
+                "id": "b92732d0-46fb-4cbc-983b-85d1bbd70088",
+                "type": "script",
+                "name": "Tag Green",
+                "state": "passed",
+                "log_url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/projects/marketplace/builds/7739/jobs/b92732d0-46fb-4cbc-983b-85d1bbd70088/log",
+                "script_path": "./script/buildbox_tag_green.sh",
+                "exit_status": 0,
+                "artifact_paths": "",
+                "agent": {
+                    "id": "454dd02b-cf58-48ab-bcc8-9a7153f0137e",
+                    "url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/agents/454dd02b-cf58-48ab-bcc8-9a7153f0137e",
+                    "name": "ip-10-63-184-245"
+                },
+                "created_at": "2014-09-22 04:29:45 UTC",
+                "scheduled_at": "2014-09-22 04:29:45 UTC",
+                "started_at": "2014-09-22 04:37:03 UTC",
+                "finished_at": "2014-09-22 04:37:07 UTC"
+            }
+        ],
+        "created_at": "2014-09-22 04:29:45 UTC",
+        "scheduled_at": "2014-09-22 04:29:45 UTC",
+        "started_at": "2014-09-22 04:29:47 UTC",
+        "finished_at": "2014-09-22 04:37:07 UTC",
+        "meta_data": {
+        }
+    },
+    {
+        "id": "9acc7cd2-63b1-44f3-ac86-81785a063333",
+        "url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/projects/marketplace/builds/7736",
+        "number": 7736,
+        "state": "passed",
+        "message": "Merge pull request #7309 from envato/allow-fraud-analysis-to-respond-to-fraud\n\nAllow fraud analysis to respond to fraud",
+        "commit": "b977b353d48934b62d96119f838a96b9e53630a1",
+        "branch": "master",
+        "env": {
+        },
+        "jobs": [
+            {
+                "id": "34e7dea4-bde0-486d-b8fc-596650461033",
+                "type": "script",
+                "name": "Jasmine",
+                "state": "passed",
+                "log_url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/projects/marketplace/builds/7736/jobs/34e7dea4-bde0-486d-b8fc-596650461033/log",
+                "script_path": "./script/buildbox_testem.sh",
+                "exit_status": 0,
+                "artifact_paths": "results/**/*; log/*; tmp/capybara/**/*",
+                "agent": {
+                    "id": "c13ffc2d-6f42-49b5-bdf7-f58c03a5181b",
+                    "url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/agents/c13ffc2d-6f42-49b5-bdf7-f58c03a5181b",
+                    "name": "ip-10-153-224-190"
+                },
+                "created_at": "2014-09-22 04:23:04 UTC",
+                "scheduled_at": "2014-09-22 04:23:04 UTC",
+                "started_at": "2014-09-22 04:23:05 UTC",
+                "finished_at": "2014-09-22 04:23:51 UTC"
+            },
+            {
+                "id": "9c874de7-8d84-442e-aa72-c818c6db03e3",
+                "type": "script",
+                "name": "Cucumber",
+                "state": "passed",
+                "log_url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/projects/marketplace/builds/7736/jobs/9c874de7-8d84-442e-aa72-c818c6db03e3/log",
+                "script_path": "./script/buildbox_parallel_rake.sh",
+                "exit_status": 0,
+                "artifact_paths": "results/**/*; log/*; tmp/capybara/**/*",
+                "agent": {
+                    "id": "a75ba11f-d5d8-4ef9-b40d-45fc50c52380",
+                    "url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/agents/a75ba11f-d5d8-4ef9-b40d-45fc50c52380",
+                    "name": "ip-10-142-192-53 (2)"
+                },
+                "created_at": "2014-09-22 04:23:04 UTC",
+                "scheduled_at": "2014-09-22 04:23:04 UTC",
+                "started_at": "2014-09-22 04:23:08 UTC",
+                "finished_at": "2014-09-22 04:30:18 UTC"
+            },
+            {
+                "id": "7d3bd2fe-5f6d-4bf1-8aff-36f4a65da809",
+                "type": "script",
+                "name": "RSpec",
+                "state": "passed",
+                "log_url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/projects/marketplace/builds/7736/jobs/7d3bd2fe-5f6d-4bf1-8aff-36f4a65da809/log",
+                "script_path": "./script/buildbox_parallel_rake.sh",
+                "exit_status": 0,
+                "artifact_paths": "results/**/*; log/*; tmp/capybara/**/*",
+                "agent": {
+                    "id": "06b191ed-a52a-414b-9503-6ef4613ed864",
+                    "url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/agents/06b191ed-a52a-414b-9503-6ef4613ed864",
+                    "name": "ip-10-153-218-68"
+                },
+                "created_at": "2014-09-22 04:23:04 UTC",
+                "scheduled_at": "2014-09-22 04:23:04 UTC",
+                "started_at": "2014-09-22 04:23:19 UTC",
+                "finished_at": "2014-09-22 04:27:05 UTC"
+            },
+            {
+                "type": "waiter"
+            },
+            {
+                "id": "80fc51aa-78cc-44a8-9b69-4218eec1a910",
+                "type": "script",
+                "name": "Tag Green",
+                "state": "passed",
+                "log_url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/projects/marketplace/builds/7736/jobs/80fc51aa-78cc-44a8-9b69-4218eec1a910/log",
+                "script_path": "./script/buildbox_tag_green.sh",
+                "exit_status": 0,
+                "artifact_paths": "",
+                "agent": {
+                    "id": "a75ba11f-d5d8-4ef9-b40d-45fc50c52380",
+                    "url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/agents/a75ba11f-d5d8-4ef9-b40d-45fc50c52380",
+                    "name": "ip-10-142-192-53 (2)"
+                },
+                "created_at": "2014-09-22 04:23:04 UTC",
+                "scheduled_at": "2014-09-22 04:23:04 UTC",
+                "started_at": "2014-09-22 04:30:23 UTC",
+                "finished_at": "2014-09-22 04:30:26 UTC"
+            }
+        ],
+        "created_at": "2014-09-22 04:23:04 UTC",
+        "scheduled_at": "2014-09-22 04:23:04 UTC",
+        "started_at": "2014-09-22 04:23:05 UTC",
+        "finished_at": "2014-09-22 04:30:26 UTC",
+        "meta_data": {
+        }
+    },
+    {
+        "id": "9a54530e-9b4d-4335-81e0-2609ecefac67",
+        "url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/projects/marketplace/builds/7733",
+        "number": 7733,
+        "state": "failed",
+        "message": "Merge pull request #7309 from envato/allow-fraud-analysis-to-respond-to-fraud\n\nAllow fraud analysis to respond to fraud",
+        "commit": "b977b353d48934b62d96119f838a96b9e53630a1",
+        "branch": "master",
+        "env": {
+        },
+        "jobs": [
+            {
+                "id": "edc5e255-371e-4162-b9b5-5d9ede988092",
+                "type": "script",
+                "name": "Jasmine",
+                "state": "passed",
+                "log_url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/projects/marketplace/builds/7733/jobs/edc5e255-371e-4162-b9b5-5d9ede988092/log",
+                "script_path": "./script/buildbox_testem.sh",
+                "exit_status": 0,
+                "artifact_paths": "results/**/*; log/*; tmp/capybara/**/*",
+                "agent": {
+                    "id": "454dd02b-cf58-48ab-bcc8-9a7153f0137e",
+                    "url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/agents/454dd02b-cf58-48ab-bcc8-9a7153f0137e",
+                    "name": "ip-10-63-184-245"
+                },
+                "created_at": "2014-09-22 04:03:37 UTC",
+                "scheduled_at": "2014-09-22 04:03:37 UTC",
+                "started_at": "2014-09-22 04:03:42 UTC",
+                "finished_at": "2014-09-22 04:04:27 UTC"
+            },
+            {
+                "id": "59485f73-4138-478f-ac6e-d013aab566c4",
+                "type": "script",
+                "name": "Cucumber",
+                "state": "failed",
+                "log_url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/projects/marketplace/builds/7733/jobs/59485f73-4138-478f-ac6e-d013aab566c4/log",
+                "script_path": "./script/buildbox_parallel_rake.sh",
+                "exit_status": 1,
+                "artifact_paths": "results/**/*; log/*; tmp/capybara/**/*",
+                "agent": {
+                    "id": "06b191ed-a52a-414b-9503-6ef4613ed864",
+                    "url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/agents/06b191ed-a52a-414b-9503-6ef4613ed864",
+                    "name": "ip-10-153-218-68"
+                },
+                "created_at": "2014-09-22 04:03:37 UTC",
+                "scheduled_at": "2014-09-22 04:03:37 UTC",
+                "started_at": "2014-09-22 04:03:41 UTC",
+                "finished_at": "2014-09-22 04:10:51 UTC"
+            },
+            {
+                "id": "80c28c55-d208-469c-9cf1-fef5829f19b6",
+                "type": "script",
+                "name": "RSpec",
+                "state": "passed",
+                "log_url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/projects/marketplace/builds/7733/jobs/80c28c55-d208-469c-9cf1-fef5829f19b6/log",
+                "script_path": "./script/buildbox_parallel_rake.sh",
+                "exit_status": 0,
+                "artifact_paths": "results/**/*; log/*; tmp/capybara/**/*",
+                "agent": {
+                    "id": "c13ffc2d-6f42-49b5-bdf7-f58c03a5181b",
+                    "url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/agents/c13ffc2d-6f42-49b5-bdf7-f58c03a5181b",
+                    "name": "ip-10-153-224-190"
+                },
+                "created_at": "2014-09-22 04:03:37 UTC",
+                "scheduled_at": "2014-09-22 04:03:37 UTC",
+                "started_at": "2014-09-22 04:03:42 UTC",
+                "finished_at": "2014-09-22 04:07:31 UTC"
+            },
+            {
+                "type": "waiter"
+            },
+            {
+                "id": "7a5e2496-c196-4936-bc92-98dc60ef5b7d",
+                "type": "script",
+                "name": "Tag Green",
+                "state": "waiting_failed",
+                "log_url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/projects/marketplace/builds/7733/jobs/7a5e2496-c196-4936-bc92-98dc60ef5b7d/log",
+                "script_path": "./script/buildbox_tag_green.sh",
+                "exit_status": null,
+                "artifact_paths": "",
+                "agent": null,
+                "created_at": "2014-09-22 04:03:37 UTC",
+                "scheduled_at": "2014-09-22 04:03:37 UTC",
+                "started_at": null,
+                "finished_at": null
+            }
+        ],
+        "created_at": "2014-09-22 04:03:37 UTC",
+        "scheduled_at": "2014-09-22 04:03:37 UTC",
+        "started_at": "2014-09-22 04:03:41 UTC",
+        "finished_at": "2014-09-22 04:10:51 UTC",
+        "meta_data": {
+        }
+    },
+    {
+        "id": "8f6f1a31-bfb3-4e22-a7ae-3a8a55e72161",
+        "url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/projects/marketplace/builds/7708",
+        "number": 7708,
+        "state": "passed",
+        "message": "Merge pull request #7315 from envato/fix-trending-portfolio\n\nfix trending icon layout when viewing own portfolio view",
+        "commit": "629e0cbc6107055dfaaccd45d70f0e78bd478153",
+        "branch": "master",
+        "env": {
+        },
+        "jobs": [
+            {
+                "id": "360a98a5-fb60-4813-8337-86616937a318",
+                "type": "script",
+                "name": "Jasmine",
+                "state": "passed",
+                "log_url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/projects/marketplace/builds/7708/jobs/360a98a5-fb60-4813-8337-86616937a318/log",
+                "script_path": "./script/buildbox_testem.sh",
+                "exit_status": 0,
+                "artifact_paths": "results/**/*; log/*; tmp/capybara/**/*",
+                "agent": {
+                    "id": "454dd02b-cf58-48ab-bcc8-9a7153f0137e",
+                    "url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/agents/454dd02b-cf58-48ab-bcc8-9a7153f0137e",
+                    "name": "ip-10-63-184-245"
+                },
+                "created_at": "2014-09-22 01:31:07 UTC",
+                "scheduled_at": "2014-09-22 01:31:07 UTC",
+                "started_at": "2014-09-22 01:31:11 UTC",
+                "finished_at": "2014-09-22 01:31:55 UTC"
+            },
+            {
+                "id": "31409a6c-98ec-482e-80b1-0d50a57ea77e",
+                "type": "script",
+                "name": "Cucumber",
+                "state": "passed",
+                "log_url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/projects/marketplace/builds/7708/jobs/31409a6c-98ec-482e-80b1-0d50a57ea77e/log",
+                "script_path": "./script/buildbox_parallel_rake.sh",
+                "exit_status": 0,
+                "artifact_paths": "results/**/*; log/*; tmp/capybara/**/*",
+                "agent": {
+                    "id": "64a115fe-053f-46d5-95df-432d0e6543c7",
+                    "url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/agents/64a115fe-053f-46d5-95df-432d0e6543c7",
+                    "name": "ip-10-139-87-109"
+                },
+                "created_at": "2014-09-22 01:31:07 UTC",
+                "scheduled_at": "2014-09-22 01:31:07 UTC",
+                "started_at": "2014-09-22 01:31:11 UTC",
+                "finished_at": "2014-09-22 01:38:12 UTC"
+            },
+            {
+                "id": "c891668d-a736-4580-bd3f-d9cc380d5f8c",
+                "type": "script",
+                "name": "RSpec",
+                "state": "passed",
+                "log_url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/projects/marketplace/builds/7708/jobs/c891668d-a736-4580-bd3f-d9cc380d5f8c/log",
+                "script_path": "./script/buildbox_parallel_rake.sh",
+                "exit_status": 0,
+                "artifact_paths": "results/**/*; log/*; tmp/capybara/**/*",
+                "agent": {
+                    "id": "c13ffc2d-6f42-49b5-bdf7-f58c03a5181b",
+                    "url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/agents/c13ffc2d-6f42-49b5-bdf7-f58c03a5181b",
+                    "name": "ip-10-153-224-190"
+                },
+                "created_at": "2014-09-22 01:31:07 UTC",
+                "scheduled_at": "2014-09-22 01:31:07 UTC",
+                "started_at": "2014-09-22 01:31:10 UTC",
+                "finished_at": "2014-09-22 01:34:57 UTC"
+            },
+            {
+                "type": "waiter"
+            },
+            {
+                "id": "16f6a38b-952d-45a0-a832-2b13a0083548",
+                "type": "script",
+                "name": "Tag Green",
+                "state": "passed",
+                "log_url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/projects/marketplace/builds/7708/jobs/16f6a38b-952d-45a0-a832-2b13a0083548/log",
+                "script_path": "./script/buildbox_tag_green.sh",
+                "exit_status": 0,
+                "artifact_paths": "",
+                "agent": {
+                    "id": "461352d1-cdcd-4314-ac95-d9d83f92999a",
+                    "url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/agents/461352d1-cdcd-4314-ac95-d9d83f92999a",
+                    "name": "ip-10-144-254-125"
+                },
+                "created_at": "2014-09-22 01:31:07 UTC",
+                "scheduled_at": "2014-09-22 01:31:07 UTC",
+                "started_at": "2014-09-22 01:38:13 UTC",
+                "finished_at": "2014-09-22 01:38:16 UTC"
+            }
+        ],
+        "created_at": "2014-09-22 01:31:07 UTC",
+        "scheduled_at": "2014-09-22 01:31:07 UTC",
+        "started_at": "2014-09-22 01:31:10 UTC",
+        "finished_at": "2014-09-22 01:38:16 UTC",
+        "meta_data": {
+        }
+    },
+    {
+        "id": "9d435909-0c9d-4228-ba27-e64c4bd018b6",
+        "url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/projects/marketplace/builds/7700",
+        "number": 7700,
+        "state": "passed",
+        "message": "Merge pull request #7314 from envato/zendesk-ticket-private-note\n\nMake the Initial Entry on a Zendesk Ticket an Internal Note",
+        "commit": "edb9bad9e7fbb0902edaf46cfaccbafe81031727",
+        "branch": "master",
+        "env": {
+        },
+        "jobs": [
+            {
+                "id": "40be353c-58b0-4569-95d6-5b2040999760",
+                "type": "script",
+                "name": "Jasmine",
+                "state": "passed",
+                "log_url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/projects/marketplace/builds/7700/jobs/40be353c-58b0-4569-95d6-5b2040999760/log",
+                "script_path": "./script/buildbox_testem.sh",
+                "exit_status": 0,
+                "artifact_paths": "results/**/*; log/*; tmp/capybara/**/*",
+                "agent": {
+                    "id": "461352d1-cdcd-4314-ac95-d9d83f92999a",
+                    "url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/agents/461352d1-cdcd-4314-ac95-d9d83f92999a",
+                    "name": "ip-10-144-254-125"
+                },
+                "created_at": "2014-09-21 23:40:39 UTC",
+                "scheduled_at": "2014-09-21 23:40:39 UTC",
+                "started_at": "2014-09-21 23:40:44 UTC",
+                "finished_at": "2014-09-21 23:41:31 UTC"
+            },
+            {
+                "id": "6cdcebe7-1295-48ad-81fb-55e207c74d23",
+                "type": "script",
+                "name": "Cucumber",
+                "state": "passed",
+                "log_url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/projects/marketplace/builds/7700/jobs/6cdcebe7-1295-48ad-81fb-55e207c74d23/log",
+                "script_path": "./script/buildbox_parallel_rake.sh",
+                "exit_status": 0,
+                "artifact_paths": "results/**/*; log/*; tmp/capybara/**/*",
+                "agent": {
+                    "id": "c13ffc2d-6f42-49b5-bdf7-f58c03a5181b",
+                    "url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/agents/c13ffc2d-6f42-49b5-bdf7-f58c03a5181b",
+                    "name": "ip-10-153-224-190"
+                },
+                "created_at": "2014-09-21 23:40:39 UTC",
+                "scheduled_at": "2014-09-21 23:40:39 UTC",
+                "started_at": "2014-09-21 23:40:41 UTC",
+                "finished_at": "2014-09-21 23:47:37 UTC"
+            },
+            {
+                "id": "0128cac5-23d3-40ee-8be2-f3e5d396fa99",
+                "type": "script",
+                "name": "RSpec",
+                "state": "passed",
+                "log_url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/projects/marketplace/builds/7700/jobs/0128cac5-23d3-40ee-8be2-f3e5d396fa99/log",
+                "script_path": "./script/buildbox_parallel_rake.sh",
+                "exit_status": 0,
+                "artifact_paths": "results/**/*; log/*; tmp/capybara/**/*",
+                "agent": {
+                    "id": "64a115fe-053f-46d5-95df-432d0e6543c7",
+                    "url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/agents/64a115fe-053f-46d5-95df-432d0e6543c7",
+                    "name": "ip-10-139-87-109"
+                },
+                "created_at": "2014-09-21 23:40:39 UTC",
+                "scheduled_at": "2014-09-21 23:40:39 UTC",
+                "started_at": "2014-09-21 23:40:42 UTC",
+                "finished_at": "2014-09-21 23:44:26 UTC"
+            },
+            {
+                "type": "waiter"
+            },
+            {
+                "id": "004fa812-f01f-40ed-b028-32eba1408894",
+                "type": "script",
+                "name": "Tag Green",
+                "state": "passed",
+                "log_url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/projects/marketplace/builds/7700/jobs/004fa812-f01f-40ed-b028-32eba1408894/log",
+                "script_path": "./script/buildbox_tag_green.sh",
+                "exit_status": 0,
+                "artifact_paths": "",
+                "agent": {
+                    "id": "461352d1-cdcd-4314-ac95-d9d83f92999a",
+                    "url": "https://api.buildbox.io/v1/accounts/envato-marketplaces/agents/461352d1-cdcd-4314-ac95-d9d83f92999a",
+                    "name": "ip-10-144-254-125"
+                },
+                "created_at": "2014-09-21 23:40:39 UTC",
+                "scheduled_at": "2014-09-21 23:40:39 UTC",
+                "started_at": "2014-09-21 23:47:38 UTC",
+                "finished_at": "2014-09-21 23:47:42 UTC"
+            }
+        ],
+        "created_at": "2014-09-21 23:40:39 UTC",
+        "scheduled_at": "2014-09-21 23:40:39 UTC",
+        "started_at": "2014-09-21 23:40:41 UTC",
+        "finished_at": "2014-09-21 23:47:42 UTC",
+        "meta_data": {
+        }
+    }
+]
