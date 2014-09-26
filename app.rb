@@ -3,11 +3,14 @@ require 'sinatra/assetpack'
 require 'json'
 require 'sinatra/reloader' if development?
 require "sinatra/json"
+require "sinatra/jsonp"
 require 'haml'
 require 'redcarpet'
 require './lib/buildbox'
 
 class App < Sinatra::Application
+  helpers Sinatra::Jsonp
+
   set :root, File.dirname(__FILE__)
   configure do
     $LOAD_PATH.unshift("#{File.dirname(__FILE__)}/lib")
@@ -73,7 +76,7 @@ class App < Sinatra::Application
   get '/data/:project/:branch' do
     bb = BranchDurationGraphDataParser.new(BuildBox.new)
     response = bb.fetch_and_parse(params[:project], params[:branch])
-    json response
+    jsonp response
   end
 
 end
