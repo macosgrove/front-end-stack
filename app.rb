@@ -75,8 +75,8 @@ class App < Sinatra::Application
 
   get '/data/:project/:branch' do
     bb = BranchDurationGraphDataParser.new(BuildBox.new)
-    response = bb.fetch_and_parse(params[:project], params[:branch])
-    jsonp response
+    bb.fetch_and_parse(params[:project], params[:branch])
+    jsonp bb.steps
   end
 
 end
