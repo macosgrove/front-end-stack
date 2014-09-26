@@ -6,7 +6,7 @@ class Graphbox.Graph.Base
   constructor: (@data) ->
 
     data =
-      [[{"x":7739,"y":47,"step":"Jasmine","state":"passed"},{"x":7736,"y":46,"step":"Jasmine","state":"passed"},{"x":7733,"y":45,"step":"Jasmine","state":"passed"},{"x":7708,"y":44,"step":"Jasmine","state":"passed"},{"x":7700,"y":47,"step":"Jasmine","state":"passed"}],[{"x":7739,"y":429,"step":"Cucumber","state":"passed"},{"x":7736,"y":430,"step":"Cucumber","state":"passed"},{"x":7733,"y":430,"step":"Cucumber","state":"failed"},{"x":7708,"y":421,"step":"Cucumber","state":"passed"},{"x":7700,"y":416,"step":"Cucumber","state":"passed"}],[{"x":7739,"y":228,"step":"RSpec","state":"passed"},{"x":7736,"y":226,"step":"RSpec","state":"passed"},{"x":7733,"y":229,"step":"RSpec","state":"passed"},{"x":7708,"y":227,"step":"RSpec","state":"passed"},{"x":7700,"y":224,"step":"RSpec","state":"passed"}],[{"x":7739,"y":4,"step":"Tag Green","state":"passed"},{"x":7736,"y":3,"step":"Tag Green","state":"passed"},{"x":7733,"y":0,"step":"Tag Green","state":"waiting_failed"},{"x":7708,"y":3,"step":"Tag Green","state":"passed"},{"x":7700,"y":4,"step":"Tag Green","state":"passed"}]]
+      [[{"x":7739,"y":47,"step":"Jasmine","state":"passed"},{"x":7736,"y":46,"step":"Jasmine","state":"running"},{"x":7733,"y":45,"step":"Jasmine","state":"passed"},{"x":7708,"y":44,"step":"Jasmine","state":"passed"},{"x":7700,"y":47,"step":"Jasmine","state":"passed"}],[{"x":7739,"y":429,"step":"Cucumber","state":"passed"},{"x":7736,"y":430,"step":"Cucumber","state":"passed"},{"x":7733,"y":430,"step":"Cucumber","state":"failed"},{"x":7708,"y":421,"step":"Cucumber","state":"passed"},{"x":7700,"y":416,"step":"Cucumber","state":"passed"}],[{"x":7739,"y":228,"step":"RSpec","state":"passed"},{"x":7736,"y":226,"step":"RSpec","state":"passed"},{"x":7733,"y":229,"step":"RSpec","state":"passed"},{"x":7708,"y":227,"step":"RSpec","state":"passed"},{"x":7700,"y":224,"step":"RSpec","state":"passed"}],[{"x":7739,"y":4,"step":"Tag Green","state":"passed"},{"x":7736,"y":3,"step":"Tag Green","state":"passed"},{"x":7733,"y":0,"step":"Tag Green","state":"waiting_failed"},{"x":7708,"y":3,"step":"Tag Green","state":"passed"},{"x":7700,"y":4,"step":"Tag Green","state":"passed"}]]
 
     @data ||= data
 
@@ -66,21 +66,21 @@ class Graphbox.Graph.Base
 
     color =
       "RSpec":
-        passed: "#0f0"
-        running: "#ff0"
-        failed: "#f00"
+        passed: "#6FD57F"
+        running: "#FCB03C"
+        failed: "#FC5B3F"
       "Cucumber":
-        passed: "#080"
-        running: "#880"
-        failed: "#800"
+        passed: "#6FD57F"
+        running: "#FCB03C"
+        failed: "#FC5B3F"
       "Jasmine":
-        passed: "#8f8"
-        running: "#ff8"
-        failed: "#f88"
+        passed: "#6FD57F"
+        running: "#FCB03C"
+        failed: "#FC5B3F"
       "Tag Green":
-        passed: "#8f8"
-        running: "#ff8"
-        failed: "#f88"
+        passed: "#6FD57F"
+        running: "#FCB03C"
+        failed: "#FC5B3F"
 
     rect = layer.selectAll("rect")
     .data((d) -> d)
@@ -92,6 +92,22 @@ class Graphbox.Graph.Base
     .attr("height", 0)
     .style("fill", (d, i) ->
       color[d.step][d.state] or "#999999"
+    )
+    .style("opacity", (d, i) ->
+      if d.state == "failed"
+        1
+      else if d.state == "running"
+        0.25
+      else if d.step == "Tag Green"
+        0.333333
+      else if d.step == "RSpec"
+        0.555555
+      else if d.step == "Cucumber"
+        0.777777
+      else if d.step == "Jasmine"
+        1
+      else
+        1
     )
 
     rect.transition()
