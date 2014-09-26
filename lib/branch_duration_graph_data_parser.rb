@@ -29,7 +29,9 @@ class BranchDurationGraphDataParser
     @steps.values.to_json
   end
 
-  alias_method :branch_duration_graph_data, :to_json
+  def branch_duration_graph_data
+    @steps.values
+  end
 
 end
 
