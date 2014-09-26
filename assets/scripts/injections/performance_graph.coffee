@@ -9,5 +9,6 @@ class Graphbox.Injection.PerformanceGraph extends Graphbox.Injection.Base
     @path = "https://graphbox.herokuapp.com/data/marketplace/master?callback=?"
 
   inject: ->
+    target = @target
     $.getJSON @path, (data) ->
-      (new Graphbox.Graph.Base data).attach(@target)
+      (new Graphbox.Graph.Base data).attach(target)
