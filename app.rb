@@ -1,9 +1,9 @@
 require 'sinatra/base'
 require 'sinatra/assetpack'
 require 'json'
+require "sinatra/jsonp"
 require 'sinatra/reloader' if development?
 require "sinatra/json"
-require "sinatra/jsonp"
 require 'haml'
 require 'redcarpet'
 require './lib/buildbox'
@@ -74,9 +74,9 @@ class App < Sinatra::Application
   end
 
   get '/data/:project/:branch' do
-    bb = BranchDurationGraphDataParser.new(BuildBox.new)
-    bb.fetch_and_parse(params[:project], params[:branch])
-    jsonp bb.steps
+    parser = BranchDurationGraphDataParser.new(BuildBox.new)
+    parser.fetch_and_parse(params[:project], params[:branch])
+    jsonp parser.branch_duration_graph_data
   end
 
 end
