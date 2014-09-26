@@ -14,7 +14,7 @@ class Graphbox.Initializer
 
   load_graphs: ->
     if window.d3 isnt undefined
-      $inject_script = $("script[src='https://graphbox.herokuapp.com/js/inject/js']")
+      $inject_script = $("script[src='https://graphbox.herokuapp.com/js/inject.js']")
       current_branch = $inject_script.data('branch')
       (new Graphbox.Injection.PerformanceGraph current_branch, "#graphbox-js_performance_graph_pane").inject()
 
