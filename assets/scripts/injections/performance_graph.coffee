@@ -3,10 +3,9 @@ window.Graphbox.Injection ?= {}
 
 class Graphbox.Injection.PerformanceGraph extends Graphbox.Injection.Base
 
-  constructor: ->
+  constructor: (@branch, @target)->
 
-    @target = "#graphbox-js_performance_graph_pane"
-    @path = "https://graphbox.herokuapp.com/data/marketplace/master?callback=?"
+    @path = "https://graphbox.herokuapp.com/data/marketplace/#{branch}?callback=?"
 
   inject: ->
     target = @target
