@@ -8,7 +8,7 @@ class Graphbox.Injection.ContentPane extends Graphbox.Injection.Base
     $pane = $("<div id=" + @pane_id + " ></div>")
     $pane.hide()
 
-    $title = $("<h3>" + @pane_id + "</h3>")
+    $title = $("<h4>Graphbox: providing quality graphs since yesterday</h4>")
     $pane.append($title)
 
     @content = $pane
